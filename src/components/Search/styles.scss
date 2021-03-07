@@ -1,0 +1,23 @@
+.search {
+  background-color: #121216;
+  padding: 1em;
+  margin-left: 200px;
+  border-bottom: 2px solid #32323D;
+
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__input {
+    background-color: #121216;
+    border: none;
+    color : white;
+    margin-left: 1em;
+  }
+}
+
+.search ion-icon{
+  color: white;
+  font-size: 24px;
+}
