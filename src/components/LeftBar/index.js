@@ -7,7 +7,7 @@ import logoDeezer from './logoDeezer.png';
 const LeftBar = () => (
   <div className="leftBar">
     <a href="www.deezer.fr">
-      <img className="leftBar__logo" src={logoDeezer} alt="logo" />;
+      <img className="leftBar__logo" src={logoDeezer} alt="logo" />
     </a>
     <div className="leftBar__link">
       <ul className="link-list">
