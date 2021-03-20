@@ -1,18 +1,16 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card as SementicCard } from 'semantic-ui-react';
 import './styles.scss';
+
+import Card from './Card';
 
 const Content = () => (
   <div className="content">
-    <Card color="red">
-      <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>Matthew</Card.Header>
-        <Card.Description>
-          Matthew is a musician living in Nashville.
-        </Card.Description>
-      </Card.Content>
-    </Card>
+    <h1>Pour vous</h1>
+    <SementicCard.Group itemsPerRow={4}>
+      <Card />
+    </SementicCard.Group>
+
   </div>
 );
 
