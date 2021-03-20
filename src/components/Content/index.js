@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card as SementicCard } from 'semantic-ui-react';
+import { Card as SemanticCard } from 'semantic-ui-react';
 import './styles.scss';
 
 import Card from './Card';
 
 const Content = ({ albums }) => (
-  <div className="content">
-    <SementicCard.Group
+  <div className="container">
+    <SemanticCard.Group
       itemsPerRow={4}
       stackable
       doubling
@@ -17,7 +17,7 @@ const Content = ({ albums }) => (
         <Card key={album.id.toString()} {...album} />
       ))
     }
-    </SementicCard.Group>
+    </SemanticCard.Group>
 
   </div>
 );
