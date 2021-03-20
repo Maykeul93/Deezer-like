@@ -1,31 +1,36 @@
 import React from 'react';
-
-import './styles.scss';
+import {
+  Header, Icon, Image, Menu, Segment, Sidebar,
+} from 'semantic-ui-react';
 
 import logoDeezer from './logoDeezer.png';
 
 const LeftBar = () => (
-  <div className="leftBar">
-    <a href="www.deezer.fr">
-      <img className="leftBar__logo" src={logoDeezer} alt="logo" />
-    </a>
-    <div className="leftBar__link">
-      <ul className="link-list">
-        <li className="link">
-          <a href="#">Musique</a>
-        </li>
-        <li className="link">
-          <a href="#">Shows</a>
-        </li>
-        <li className="link">
-          <a href="#">Parcourir</a>
-        </li>
-        <li className="link">
-          <a href="#">Favoris</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <Sidebar.Pusher>
+    <Sidebar
+      as={Menu}
+      animation="overlay"
+      icon="labeled"
+      inverted
+      vertical
+      visible
+      width="thin"
+    >
+      <Image src={logoDeezer} size="small" />
+      <Menu.Item as="a">
+        <Icon name="music" />
+        Music
+      </Menu.Item>
+      <Menu.Item as="a">
+        <Icon name="microphone" />
+        Shows
+      </Menu.Item>
+      <Menu.Item as="a">
+        <Icon name="heart" />
+        Favorites
+      </Menu.Item>
+    </Sidebar>
+  </Sidebar.Pusher>
 );
 
 export default LeftBar;
