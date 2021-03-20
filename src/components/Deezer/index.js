@@ -6,12 +6,13 @@ import Content from 'src/components/Content';
 // == Import
 import './styles.css';
 
+import albumsData from 'src/data/data.json';
 // == Composant
 const Deezer = () => (
   <div className="deezer">
     <Search />
     <LeftBar />
-    <Content />
+    <Content albums={albumsData.data} />
   </div>
 );
 
