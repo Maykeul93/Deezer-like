@@ -5,4 +5,19 @@
   margin-left: 150px;
   padding: 2em 4em;
   background-color: #121216;
+
+  .cards{
+    .card {
+      .content{
+        background-color: #121216;
+        .header{
+          color: gainsboro;
+        };
+        .meta{
+          color: lightslategray;
+        }
+      }
+    }
+  }
 }
+

@@ -4,14 +4,14 @@ import Proptypes from 'prop-types';
 import { Card as SementicCard, Image } from 'semantic-ui-react';
 
 const Card = ({
-  cover,
+  cover_medium: coverMedium,
   artist: {
     name,
   },
   title,
 }) => (
   <SementicCard color="red">
-    <Image src={cover} wrapped ui={false} />
+    <Image src={coverMedium} wrapped ui={false} />
     <SementicCard.Content>
       <SementicCard.Header>{name}</SementicCard.Header>
       <SementicCard.Meta>
@@ -22,7 +22,7 @@ const Card = ({
 );
 
 Card.propTypes = {
-  cover: Proptypes.string,
+  cover_medium: Proptypes.string,
   artist: Proptypes.shape({
     name: Proptypes.string,
   }),
@@ -30,7 +30,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  cover: '',
+  cover_medium: '',
   artist: {},
   title: '',
 };

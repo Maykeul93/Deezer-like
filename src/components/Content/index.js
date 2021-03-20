@@ -7,7 +7,11 @@ import Card from './Card';
 
 const Content = ({ albums }) => (
   <div className="content">
-    <SementicCard.Group itemsPerRow={4}>
+    <SementicCard.Group
+      itemsPerRow={4}
+      stackable
+      doubling
+    >
       {
       albums.map((album) => (
         <Card key={album.id.toString()} {...album} />
@@ -21,7 +25,7 @@ const Content = ({ albums }) => (
 Content.propTypes = {
   albums: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ),
 };
