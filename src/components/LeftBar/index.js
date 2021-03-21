@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Header, Icon, Image, Menu, Segment, Sidebar,
+  Icon, Image, Menu, Sidebar,
 } from 'semantic-ui-react';
 
 import logoDeezer from './logoDeezer.png';
@@ -16,7 +16,7 @@ const LeftBar = () => (
       visible
       width="thin"
     >
-      <Image src={logoDeezer} size="small" />
+      <Image href="/" src={logoDeezer} size="small" />
       <Menu.Item as="a">
         <Icon name="music" />
         Music
