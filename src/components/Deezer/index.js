@@ -15,7 +15,7 @@ import {
 } from 'react-router-dom';
 // == Composant
 const Deezer = () => {
-  const [search, setSearch] = useState('eminem');
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -50,6 +50,7 @@ const Deezer = () => {
               onSearch={handleSubmitSearch}
               inputSearchValue={search}
               onSearchChange={setSearch}
+              onLoading={loading}
             />
             <LeftBar />
             <Content albums={searchResults} />
@@ -59,6 +60,7 @@ const Deezer = () => {
               onSearch={handleSubmitSearch}
               inputSearchValue={search}
               onSearchChange={setSearch}
+              onLoading={loading}
             />
             <LeftBar />
             <Album />

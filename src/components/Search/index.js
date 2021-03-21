@@ -2,20 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
+import { Form, Input } from 'semantic-ui-react';
 
-const Search = ({ onSearch, onSearchChange, inputSearchValue }) => (
-  <div className="search">
-    <form className="search__form" onSubmit={onSearch}>
-      <ion-icon name="search-sharp" />
-      <input
-        className="search__input"
-        type="text"
-        placeholder="Rechercher"
-        onChange={(event) => onSearchChange(event.target.value)}
-        value={inputSearchValue}
-      />
-    </form>
-  </div>
+const Search = ({
+  onSearch, onSearchChange, inputSearchValue, onLoading,
+}) => (
+  <Form onSubmit={onSearch}>
+    <Input
+      icon="search"
+      iconPosition="left"
+      fluid
+      loading={onLoading}
+      type="text"
+      placeholder="Rechercher un artiste, une musique ou un album"
+      onChange={(event) => onSearchChange(event.target.value)}
+      value={inputSearchValue}
+    />
+  </Form>
 );
 
 Search.propTypes = {
@@ -25,11 +28,13 @@ Search.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  onLoading: PropTypes.bool,
 };
 
 Search.defaultProps = {
   onSearch: () => {},
   onSearchChange: () => {},
   inputSearchValue: '',
+  onLoading: false,
 };
 export default Search;
