@@ -25,7 +25,10 @@ const Content = ({ albums }) => (
 Content.propTypes = {
   albums: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]).isRequired,
     }),
   ),
 };

@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom';
 
 const Card = ({
   id,
-  cover_medium: coverMedium,
   artist: {
     name,
+  },
+  album: {
+    cover_medium: coverMedium,
   },
   title,
 }) => {
@@ -30,16 +32,18 @@ Card.propTypes = {
     Proptypes.string,
     Proptypes.number,
   ]).isRequired,
-  cover_medium: Proptypes.string,
   artist: Proptypes.shape({
     name: Proptypes.string,
+  }),
+  album: Proptypes.shape({
+    cover_medium: Proptypes.string,
   }),
   title: Proptypes.string,
 };
 
 Card.defaultProps = {
-  cover_medium: '',
   artist: {},
+  album: {},
   title: '',
 };
 export default Card;

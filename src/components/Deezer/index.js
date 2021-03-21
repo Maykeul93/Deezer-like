@@ -1,5 +1,7 @@
 // == Import npm
 import React, { useState } from 'react';
+import api from 'src/api';
+
 import Search from 'src/components/Search';
 import LeftBar from 'src/components/LeftBar';
 import Content from 'src/components/Content';
@@ -14,10 +16,28 @@ import {
 // == Composant
 const Deezer = () => {
   const [search, setSearch] = useState('eminem');
+  const [loading, setLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSubmitSearch = (event) => {
     event.preventDefault();
-    alert(`sumbit done: ${search}`);
+    setLoading(true);
+    api.get('/search', {
+      params: {
+        q: search,
+      },
+    })
+      .then((response) => response.data)
+      .then((responseData) => {
+        console.log(responseData);
+        setSearchResults(responseData.data);
+      })
+      .catch((errors) => {
+        console.error(errors);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -26,12 +46,20 @@ const Deezer = () => {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Search onSearch={handleSubmitSearch} inputSearchValue={search} />
+            <Search
+              onSearch={handleSubmitSearch}
+              inputSearchValue={search}
+              onSearchChange={setSearch}
+            />
             <LeftBar />
-            <Content albums={albumsData.data} />
+            <Content albums={searchResults} />
           </Route>
           <Route path="/album/:albumId">
-            <Search onSearch={handleSubmitSearch} inputSearchValue={search} />
+            <Search
+              onSearch={handleSubmitSearch}
+              inputSearchValue={search}
+              onSearchChange={setSearch}
+            />
             <LeftBar />
             <Album />
           </Route>

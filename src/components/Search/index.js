@@ -11,7 +11,7 @@ const Search = ({ onSearch, onSearchChange, inputSearchValue }) => (
         className="search__input"
         type="text"
         placeholder="Rechercher"
-        onChange={onSearchChange}
+        onChange={(event) => onSearchChange(event.target.value)}
         value={inputSearchValue}
       />
     </form>
