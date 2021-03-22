@@ -9,7 +9,6 @@ import Album from 'src/components/Album';
 // == Import
 import './styles.css';
 
-import albumsData from 'src/data/data.json';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';

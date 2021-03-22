@@ -1,33 +1,23 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { List, ListHeader } from 'semantic-ui-react';
+
+import fetchAlbumData from 'src/hooks/fetchAlbumData';
 
 import './styles.scss';
+import { useParams } from 'react-router-dom';
 
-const Album = () => (
-  <List divided relaxed>
-    <List.Header as="h1">Artiste</List.Header>
-    <List.Item>
-      <List.Icon name="github" size="large" verticalAlign="middle" />
-      <List.Content>
-        <List.Header as="a">Semantic-Org/Semantic-UI</List.Header>
-        <List.Description as="a">Updated 10 mins ago</List.Description>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <List.Icon name="github" size="large" verticalAlign="middle" />
-      <List.Content>
-        <List.Header as="a">Semantic-Org/Semantic-UI-Docs</List.Header>
-        <List.Description as="a">Updated 22 mins ago</List.Description>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <List.Icon name="github" size="large" verticalAlign="middle" />
-      <List.Content>
-        <List.Header as="a">Semantic-Org/Semantic-UI-Meteor</List.Header>
-        <List.Description as="a">Updated 34 mins ago</List.Description>
-      </List.Content>
-    </List.Item>
-  </List>
-);
+const Album = () => {
+  const { albumId } = useParams();
+  const {
+    albumData,
+  } = fetchAlbumData(`album/${albumId}`);
+  console.log('albumData', albumData);
+  return (
+    <List divided relaxed>
+      <List.Header as="h1">{albumData.title}</List.Header>
+      <List.Item />
+    </List>
+  );
+};
 
 export default Album;
